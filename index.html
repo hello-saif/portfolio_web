@@ -1,11 +1,10 @@
-```html
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" type="image/ico" href="/images/favicon.ico">
     <title>Saifuddin | Flutter Developer</title>
 
     <!-- Bootstrap -->
@@ -14,58 +13,78 @@
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
+
 </head>
 
 <body>
 
     <!-- ================= NAVBAR ================= -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+
+    <nav class="navbar navbar-expand-lg modern-navbar fixed-top">
+
         <div class="container">
 
-            <a class="navbar-brand fw-bold" href="#home">
-                <span>&lt;</span> Saifuddin <span>/&gt;</span>
+            <!-- Brand -->
+            <a class="navbar-brand" href="#home">
+                <span class="brand-symbol">&lt;</span>
+                <span class="brand-name">Saifuddin</span>
+                <span class="brand-symbol">/&gt;</span>
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="bi bi-list"></i>
-            </button>
 
+            <!-- Navigation -->
             <div class="collapse navbar-collapse" id="navbarNav">
 
-                <ul class="navbar-nav ms-auto align-items-lg-center">
+                <ul class="navbar-nav mx-auto align-items-lg-center">
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
+                        <a class="nav-link active" href="#home">
+                            Home
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="#about">
+                            About
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a>
+                        <a class="nav-link" href="#skills">
+                            Skills
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
+                        <a class="nav-link" href="#projects">
+                            Projects
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="#contact">
+                            Contact
+                        </a>
                     </li>
 
                 </ul>
 
-                <a href="#contact" class="btn btn-primary ms-lg-4">
-                    Let's Talk
+                <!-- CTA -->
+                <a href="#contact" class="navbar-cta">
+                    <span>Let's Talk</span>
+                    <i class="bi bi-arrow-up-right"></i>
                 </a>
 
             </div>
+
         </div>
+
     </nav>
+
+
 
 
     <!-- ================= HERO ================= -->
@@ -108,22 +127,36 @@
 
                     </div>
 
-                    <div class="social-links">
+                    <!-- <div class="social-links">
 
-                        <a href="#" aria-label="GitHub">
+                        <a href="https://github.com/hello-saif" aria-label="GitHub">
                             <i class="bi bi-github"></i>
                         </a>
 
-                        <a href="#" aria-label="LinkedIn">
+                        <a href="https://bd.linkedin.com/in/saifuddin-nobab" aria-label="LinkedIn">
                             <i class="bi bi-linkedin"></i>
                         </a>
 
-                        <a href="#" aria-label="Facebook">
-                            <i class="bi bi-facebook"></i>
+
+
+                    </div> -->
+                    <div class="social-links">
+
+                        <!-- GitHub -->
+                        <a href="https://github.com/hello-saif" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub">
+                            <i class="bi bi-github"></i>
                         </a>
 
-                    </div>
+                        <!-- LinkedIn -->
+                        <a href="https://bd.linkedin.com/in/saifuddin-nobab" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
 
+
+
+                    </div>
                 </div>
 
                 <div class="col-lg-5 text-center">
@@ -220,7 +253,7 @@
 
                         <div class="info-item">
                             <strong>Location</strong>
-                            <span>Bangladesh</span>
+                            <span>West Shewrapara, Mirpur, Dhaka, Bangladesh</span>
                         </div>
 
                     </div>
@@ -273,7 +306,7 @@
 
                     <div class="skill-card">
 
-                        <i class="bi bi-filetype-dart"></i>
+                        <i class="devicon-dart-plain"></i>
 
                         <h4>Dart</h4>
 
@@ -307,22 +340,6 @@
 
                     <div class="skill-card">
 
-                        <i class="bi bi-server"></i>
-
-                        <h4>MongoDB</h4>
-
-                        <p>
-                            Database design and data management.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="skill-card">
-
                         <i class="bi bi-git"></i>
 
                         <h4>Git & GitHub</h4>
@@ -340,18 +357,20 @@
 
                     <div class="skill-card">
 
-                        <i class="bi bi-palette"></i>
+                        <i class="bi bi-cloud-upload"></i>
 
-                        <h4>UI/UX</h4>
+                        <h4>App Deployment</h4>
 
                         <p>
-                            Clean, modern and user-friendly
-                            interface design.
+                            App deployment and publishing
+                            on Apple App Store and Google Play Store.
                         </p>
 
                     </div>
 
                 </div>
+
+
 
             </div>
 
@@ -378,12 +397,13 @@
 
             <div class="row g-4 mt-5">
 
+                <!-- Roots & Routes -->
                 <div class="col-md-6 col-lg-4">
 
                     <div class="project-card">
 
                         <div class="project-image">
-                            <i class="bi bi-phone"></i>
+                            <img src="/images/roots.png" alt="Roots & Routes Travel App">
                         </div>
 
                         <div class="project-content">
@@ -401,12 +421,13 @@
                                 <span>Flutter</span>
                                 <span>Firebase</span>
                                 <span>AI</span>
+                                <span>Dart</span>
+                                <span>REST API</span>
                             </div>
+
                             <a href="projects/roots-routes.html" class="btn btn-primary">
                                 View Details
                             </a>
-
-
 
                         </div>
 
@@ -415,38 +436,40 @@
                 </div>
 
 
+                <!-- Back To Life -->
                 <div class="col-md-6 col-lg-4">
 
                     <div class="project-card">
 
                         <div class="project-image">
-                            <i class="bi bi-people"></i>
+                            <img src="/images/Tab2.png" alt="Mess Manager App">
                         </div>
 
                         <div class="project-content">
 
                             <span>Flutter App</span>
 
-                            <h4>Mess Manager</h4>
+                            <h4>BackToLife Feed</h4>
+
 
                             <p>
-                                A complete mess management system
-                                for members and managers.
+                                A privacy-focused app that lets users hide or block
+                                unwanted features across YouTube, Instagram, and Twitter
+                                for a cleaner and more controlled social media experience.
                             </p>
+
+
 
                             <div class="project-tech">
                                 <span>Flutter</span>
+                                <span>Dart</span>
                                 <span>Firebase</span>
                                 <span>REST API</span>
                             </div>
 
-
-
                             <a href="projects/mess-manager.html" class="btn btn-primary">
                                 View Details
                             </a>
-
-
 
                         </div>
 
@@ -455,32 +478,151 @@
                 </div>
 
 
+                <!-- Inner Compass -->
                 <div class="col-md-6 col-lg-4">
 
                     <div class="project-card">
 
                         <div class="project-image">
-                            <i class="bi bi-file-earmark-text"></i>
+                            <img src="/images/Banner.png" alt="AI Document Helper">
                         </div>
 
                         <div class="project-content">
 
-                            <span>Web App</span>
+                            <span>Flutter App</span>
 
-                            <h4>AI Document Helper</h4>
+                            <h4>Inner Compass</h4>
 
                             <p>
-                                AI-powered document analysis,
-                                summarization and learning platform.
+                                A calming meditation and mindfulness app featuring
+                                relaxing music, soothing sounds, and guided sessions
+                                for better focus, relaxation, and sleep.
+                            </p>
+
+
+
+                            <div class="project-tech">
+                                <span>Flutter</span>
+                                <span>Dart</span>
+                                <span>API</span>
+                                <span>Firebase</span>
+                            </div>
+
+                            <a href="projects/ai-document-helper.html" class="btn btn-primary">
+                                View Details
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ONS -->
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="project-card">
+
+                        <div class="project-image">
+                            <img src="/images/Thumbnail.png" alt="AI Document Helper">
+                        </div>
+
+                        <div class="project-content">
+
+                            <span>Flutter App</span>
+
+                            <h4>ONS I أُنس</h4>
+
+
+                            <p>
+                                A complete event booking system that allows users to
+                                discover events, view event details, and easily book
+                                tickets for their favorite events.
                             </p>
 
                             <div class="project-tech">
-                                <span>JavaScript</span>
-                                <span>AI</span>
+                                <span>Flutter</span>
+                                <span>Dart</span>
                                 <span>API</span>
+                                <span>Firebase</span>
                             </div>
 
+                            <a href="projects/ai-document-helper.html" class="btn btn-primary">
+                                View Details
+                            </a>
 
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- Chewr -->
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="project-card">
+
+                        <div class="project-image">
+                            <img src="/images/Thumbnail (1).png" alt="AI Document Helper">
+                        </div>
+
+                        <div class="project-content">
+
+                            <span>Flutter App</span>
+
+                            <h4>Chewr</h4>
+
+
+
+                            <p>
+                                An AI-powered food recommendation app that suggests
+                                personalized daily meals based on users' preferences,
+                                dietary needs, and lifestyle.
+                            </p>
+
+
+
+                            <div class="project-tech">
+                                <span>Flutter</span>
+                                <span>Dart</span>
+                                <span>API</span>
+                                <span>Firebase</span>
+                                <span>AI</span>
+                            </div>
+
+                            <a href="projects/ai-document-helper.html" class="btn btn-primary">
+                                View Details
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- GalaxyTunes -->
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="project-card">
+
+                        <div class="project-image">
+                            <img src="/images/live streaming platform for creators.png" alt="AI Document Helper">
+                        </div>
+
+                        <div class="project-content">
+
+                            <span>Flutter App</span>
+
+                            <h4>GalaxyTunes</h4>
+                            <p>
+                                A modern music and video player app that lets users
+                                enjoy their favorite songs and videos with a smooth
+                                and seamless playback experience.
+                            </p>
+                            <div class="project-tech">
+                                <span>Flutter</span>
+                                <span>Dart</span>
+                                <span>API</span>
+                                <span>Firebase</span>
+                            </div>
 
                             <a href="projects/ai-document-helper.html" class="btn btn-primary">
                                 View Details
@@ -526,7 +668,7 @@
                         </p>
 
                         <!-- Email -->
-                        <a href="mailto:your-email@gmail.com" class="contact-info-item">
+                        <a href="mailto:mdsaifuddinnobab5@gmail.com" class="contact-info-item">
 
                             <div class="contact-icon">
                                 <i class="bi bi-envelope"></i>
@@ -534,13 +676,13 @@
 
                             <div>
                                 <span>Email</span>
-                                <strong>your-email@gmail.com</strong>
+                                <strong>mdsaifuddinnobab5@gmail.com</strong>
                             </div>
 
                         </a>
 
                         <!-- Phone -->
-                        <a href="tel:+8801XXXXXXXXX" class="contact-info-item">
+                        <a href="+8801850991888" class="contact-info-item">
 
                             <div class="contact-icon">
                                 <i class="bi bi-telephone"></i>
@@ -548,13 +690,13 @@
 
                             <div>
                                 <span>Phone</span>
-                                <strong>+880 1XXX-XXXXXX</strong>
+                                <strong>+880 1850991888</strong>
                             </div>
 
                         </a>
 
                         <!-- GitHub -->
-                        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"
+                        <a href="https://github.com/hello-saif" target="_blank" rel="noopener noreferrer"
                             class="contact-info-item">
 
                             <div class="contact-icon">
@@ -563,13 +705,13 @@
 
                             <div>
                                 <span>GitHub</span>
-                                <strong>github.com/yourusername</strong>
+                                <strong>github.com/hello-saif</strong>
                             </div>
 
                         </a>
 
                         <!-- LinkedIn -->
-                        <a href="https://www.linkedin.com/in/yourusername/" target="_blank" rel="noopener noreferrer"
+                        <a href="https://bd.linkedin.com/in/saifuddin-nobab" target="_blank" rel="noopener noreferrer"
                             class="contact-info-item">
 
                             <div class="contact-icon">
@@ -578,7 +720,7 @@
 
                             <div>
                                 <span>LinkedIn</span>
-                                <strong>linkedin.com/in/yourusername</strong>
+                                <strong>https://bd.linkedin.com/in/saifuddin-nobab</strong>
                             </div>
 
                         </a>
@@ -637,4 +779,3 @@
 </body>
 
 </html>
-```
