@@ -98,41 +98,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             overlay.innerHTML = `
-    < button class="lightbox-close" >
-        <i class="bi bi-x-lg"></i>
-                </button >
 
-    <img src="${image.src}" alt="${image.alt}">
+                <img src="${image.src}" alt="${image.alt}">
         `;
 
 
-        document.body.appendChild(overlay);
+            document.body.appendChild(overlay);
 
 
             requestAnimationFrame(() => {
-            overlay.classList.add("active");
+                overlay.classList.add("active");
             });
 
 
-        overlay.addEventListener(
-        "click",
+            overlay.addEventListener(
+                "click",
                 (event) => {
 
                     if (
-        event.target === overlay ||
-        event.target.closest(".lightbox-close")
-        ) {
+                        event.target === overlay ||
+                        event.target.closest(".lightbox-close")
+                    ) {
 
-            overlay.classList.remove("active");
+                        overlay.classList.remove("active");
 
                         setTimeout(() => {
-            overlay.remove();
+                            overlay.remove();
                         }, 250);
 
                     }
 
                 }
-        );
+            );
 
         });
 
@@ -140,27 +137,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-        /* =========================================
-           ESC CLOSE LIGHTBOX
-        ========================================= */
+    /* =========================================
+       ESC CLOSE LIGHTBOX
+    ========================================= */
 
-        document.addEventListener(
+    document.addEventListener(
         "keydown",
         (event) => {
 
             if (event.key === "Escape") {
 
                 const lightbox =
-        document.querySelector(".image-lightbox");
+                    document.querySelector(".image-lightbox");
 
-        if (lightbox) {
-            lightbox.remove();
+                if (lightbox) {
+                    lightbox.remove();
                 }
 
             }
 
         }
-        );
+    );
 
 });
-        
