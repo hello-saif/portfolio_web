@@ -10,16 +10,23 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
-
 </head>
 
 <body>
+
+    <!-- ================= GLOBAL LIVE BACKGROUND ================= -->
+    <div class="global-bg-wrapper" aria-hidden="true">
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="hero-glow hero-glow-3"></div>
+        <div class="hero-grid-pattern"></div>
+        <canvas id="bg-canvas"></canvas>
+    </div>
 
     <!-- ================= NAVBAR ================= -->
 
@@ -90,7 +97,7 @@
     <!-- ================= HERO ================= -->
     <section id="home" class="hero-section">
 
-        <div class="container">
+        <div class="container hero-content">
 
             <div class="row align-items-center min-vh-100">
 

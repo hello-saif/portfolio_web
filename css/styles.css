@@ -37,94 +37,6 @@ section {
 
 
 /* =========================
-   NAVBAR
-========================= */
-
-.navbar {
-    background: rgba(15, 23, 42, 0.9);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border);
-    padding: 18px 0;
-}
-
-.navbar-brand {
-    color: white;
-    font-size: 24px;
-}
-
-.navbar-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-
-    color: #ffffff !important;
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-
-    transition: all 0.3s ease;
-}
-
-.navbar-brand::before {
-    content: "</>";
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 38px;
-    height: 38px;
-
-    border-radius: 10px;
-
-    background: linear-gradient(135deg,
-            #1b51d9,
-            #6c63ff);
-
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 700;
-
-    box-shadow: 0 6px 20px rgba(27, 81, 217, 0.25);
-
-    transition: all 0.3s ease;
-}
-
-.navbar-brand:hover {
-    color: #ffffff !important;
-}
-
-.navbar-brand:hover::before {
-    transform: rotate(-5deg) scale(1.05);
-    box-shadow: 0 8px 25px rgba(27, 81, 217, 0.4);
-}
-
-.navbar-brand span {
-    color: var(--primary);
-}
-
-.nav-link {
-    color: #cbd5e1 !important;
-    margin: 0 8px;
-    transition: 0.3s;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: white !important;
-}
-
-.navbar-toggler {
-    color: white;
-    border: 1px solid var(--border);
-}
-
-.navbar-toggler i {
-    font-size: 25px;
-}
-
-
-/* =========================
    BUTTON
 ========================= */
 
@@ -140,16 +52,116 @@ section {
 
 
 /* =========================
+   GLOBAL LIVE BACKGROUND
+========================= */
+
+.global-bg-wrapper,
+.hero-bg-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#bg-canvas,
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Cyber Grid / Dot Matrix Pattern */
+.hero-grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+/* Ambient Glowing Orbs */
+.hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(95px);
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 1;
+    will-change: transform;
+}
+
+.hero-glow-1 {
+    top: -5%;
+    right: -5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.55) 0%, rgba(99, 102, 241, 0) 70%);
+    animation: orbFloat1 18s ease-in-out infinite alternate;
+}
+
+.hero-glow-2 {
+    bottom: -5%;
+    left: -5%;
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(2, 86, 155, 0.55) 0%, rgba(2, 86, 155, 0) 70%);
+    animation: orbFloat2 22s ease-in-out infinite alternate;
+}
+
+.hero-glow-3 {
+    top: 40%;
+    left: 45%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, rgba(6, 182, 212, 0) 70%);
+    animation: orbFloat3 15s ease-in-out infinite alternate;
+}
+
+@keyframes orbFloat1 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-60px, 40px) scale(1.15); }
+    100% { transform: translate(40px, -50px) scale(0.9); }
+}
+
+@keyframes orbFloat2 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(50px, -60px) scale(1.1); }
+    100% { transform: translate(-30px, 30px) scale(0.95); }
+}
+
+@keyframes orbFloat3 {
+    0% { transform: translate(0, 0) scale(0.9); }
+    50% { transform: translate(-40px, -30px) scale(1.2); }
+    100% { transform: translate(50px, 40px) scale(1); }
+}
+
+/* =========================
    HERO
 ========================= */
 
 .hero-section {
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background:
-        radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.15), transparent 30%),
-        var(--dark);
+    background: transparent;
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
 }
 
 .hero-small-title {
@@ -162,6 +174,9 @@ section {
     font-size: clamp(50px, 7vw, 90px);
     font-weight: 800;
     margin: 0;
+    background: linear-gradient(135deg, #ffffff 30%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-section h2 {
@@ -221,39 +236,97 @@ section {
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    background: linear-gradient(135deg,
-            var(--primary),
-            #8b5cf6);
-
+    background: linear-gradient(135deg, var(--primary), #8b5cf6);
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 30px 80px rgba(99, 102, 241, 0.4);
+    position: relative;
+    z-index: 2;
+    animation: heroGlowPulse 4s ease-in-out infinite alternate;
+}
 
-    box-shadow: 0 30px 80px rgba(99, 102, 241, 0.3);
+.hero-image::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(6, 182, 212, 0.3), rgba(139, 92, 246, 0.5));
+    z-index: -1;
+    filter: blur(14px);
+    animation: heroHaloRotate 8s linear infinite;
 }
 
 .hero-image i {
     font-size: 120px;
     color: white;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.25));
+}
+
+@keyframes heroGlowPulse {
+    0% {
+        box-shadow: 0 20px 60px rgba(99, 102, 241, 0.35);
+        transform: translateY(0);
+    }
+    100% {
+        box-shadow: 0 35px 90px rgba(99, 102, 241, 0.55);
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes heroHaloRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .floating-card {
     position: absolute;
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 12px 18px;
-    border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    background: rgba(30, 41, 59, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 12px 20px;
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(99, 102, 241, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #ffffff;
+    z-index: 3;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-card:hover {
+    transform: scale(1.08) translateY(-4px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(99, 102, 241, 0.4);
+}
+
+.floating-card i {
+    font-size: 20px;
+    color: var(--primary);
 }
 
 .card-one {
-    top: 20px;
-    left: -40px;
+    top: 15px;
+    left: -45px;
+    animation: floatCard1 5s ease-in-out infinite alternate;
 }
 
 .card-two {
-    bottom: 20px;
-    right: -40px;
+    bottom: 15px;
+    right: -45px;
+    animation: floatCard2 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatCard1 {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-14px) rotate(-2deg); }
+}
+
+@keyframes floatCard2 {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(14px) rotate(2deg); }
 }
 
 
@@ -334,11 +407,15 @@ section {
 ========================= */
 
 .skills-section {
-    background: var(--dark-2);
+    background: transparent;
+    position: relative;
+    z-index: 2;
 }
 
 .skill-card {
-    background: var(--card);
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border: 1px solid var(--border);
     padding: 35px;
     border-radius: 18px;
@@ -370,10 +447,17 @@ section {
    PROJECTS
 ========================= */
 
+.projects-section {
+    position: relative;
+    z-index: 2;
+}
+
 .project-card {
     height: 100%;
     overflow: hidden;
-    background: var(--card);
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border: 1px solid var(--border);
     border-radius: 18px;
     transition: 0.3s;
@@ -447,25 +531,29 @@ section {
 ========================= */
 
 .contact-section {
-    background: var(--dark-2);
+    background: transparent;
+    position: relative;
+    z-index: 2;
 }
 
 .contact-form {
-    background: var(--card);
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     padding: 40px;
     border-radius: 20px;
     border: 1px solid var(--border);
 }
 
 .form-control {
-    background: var(--dark);
+    background: rgba(15, 23, 42, 0.8);
     border: 1px solid var(--border);
     color: white;
     padding: 14px 16px;
 }
 
 .form-control:focus {
-    background: var(--dark);
+    background: rgba(15, 23, 42, 0.95);
     color: white;
     border-color: var(--primary);
     box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.15);
@@ -481,8 +569,12 @@ section {
 ========================= */
 
 footer {
+    position: relative;
+    z-index: 2;
     padding: 30px 0;
-    background: #020617;
+    background: rgba(8, 11, 20, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-top: 1px solid var(--border);
 }
 
@@ -731,19 +823,40 @@ footer a:hover {
 }
 
 /* =========================================
-   MODERN NAVBAR
+   FLOATING GLASSMORPHISM NAVBAR
 ========================================= */
 
 .modern-navbar {
-    padding: 18px 0;
+    position: fixed !important;
+    top: 20px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1140px;
+    z-index: 1050;
 
-    background: rgba(10, 13, 20, 0.75);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    padding: 10px 24px;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(13, 18, 30, 0.65) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
 
-    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 100px;
+
+    box-shadow: 
+        0 16px 40px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(99, 102, 241, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modern-navbar .container {
+    padding-left: 6px;
+    padding-right: 6px;
+    max-width: 100%;
 }
 
 
@@ -760,7 +873,7 @@ footer a:hover {
 
     color: #ffffff !important;
 
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 700;
     letter-spacing: -0.7px;
 
@@ -793,22 +906,22 @@ footer a:hover {
 ========================================= */
 
 .modern-navbar .navbar-nav {
-    gap: 8px;
+    gap: 6px;
 }
 
 .modern-navbar .nav-link {
     position: relative;
 
-    padding: 9px 15px !important;
+    padding: 8px 16px !important;
 
     color: #a9b0bf !important;
 
     font-size: 14px;
     font-weight: 500;
 
-    border-radius: 8px;
+    border-radius: 50px;
 
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
 }
 
 
@@ -816,7 +929,7 @@ footer a:hover {
 
 .modern-navbar .nav-link:hover {
     color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 
@@ -824,27 +937,12 @@ footer a:hover {
 
 .modern-navbar .nav-link.active {
     color: #ffffff !important;
+    background: rgba(99, 102, 241, 0.18);
+    font-weight: 600;
 }
 
-
-/* Active underline */
-
 .modern-navbar .nav-link.active::after {
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-    bottom: 2px;
-
-    width: 5px;
-    height: 5px;
-
-    background: #6c63ff;
-
-    border-radius: 50%;
-
-    transform: translateX(-50%);
+    display: none;
 }
 
 
@@ -857,13 +955,13 @@ footer a:hover {
     align-items: center;
     justify-content: center;
 
-    gap: 9px;
+    gap: 8px;
 
-    padding: 11px 18px;
+    padding: 9px 18px;
 
     color: #ffffff !important;
 
-    font-size: 14px;
+    font-size: 13.5px;
     font-weight: 600;
 
     text-decoration: none;
@@ -872,18 +970,18 @@ footer a:hover {
             #6c63ff,
             #4f46e5);
 
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 
-    border-radius: 10px;
+    border-radius: 50px;
 
     box-shadow:
-        0 8px 25px rgba(108, 99, 255, 0.18);
+        0 8px 25px rgba(108, 99, 255, 0.25);
 
     transition: all 0.3s ease;
 }
 
 .navbar-cta i {
-    font-size: 14px;
+    font-size: 13px;
 
     transition: transform 0.3s ease;
 }
@@ -894,7 +992,7 @@ footer a:hover {
     transform: translateY(-2px);
 
     box-shadow:
-        0 12px 30px rgba(108, 99, 255, 0.3);
+        0 12px 30px rgba(108, 99, 255, 0.4);
 }
 
 .navbar-cta:hover i {
@@ -907,28 +1005,21 @@ footer a:hover {
 ========================================= */
 
 .modern-navbar .navbar-toggler {
-    width: 44px;
-    height: 44px;
-
-    display: flex;
+    display: none;
+    width: 40px;
+    height: 40px;
     align-items: center;
     justify-content: center;
-
     padding: 0;
-
     color: #ffffff;
-
-    background: rgba(255, 255, 255, 0.05);
-
-    border: 1px solid rgba(255, 255, 255, 0.08);
-
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 10px;
-
     box-shadow: none !important;
 }
 
 .modern-navbar .navbar-toggler i {
-    font-size: 23px;
+    font-size: 20px;
 }
 
 .modern-navbar .navbar-toggler:focus {
@@ -941,14 +1032,17 @@ footer a:hover {
 ========================================= */
 
 .modern-navbar.scrolled {
-    padding: 12px 0;
+    top: 14px !important;
+    padding: 7px 20px;
 
-    background: rgba(8, 10, 16, 0.95);
+    background: rgba(8, 12, 22, 0.82) !important;
 
-    border-bottom-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(99, 102, 241, 0.3);
 
     box-shadow:
-        0 10px 35px rgba(0, 0, 0, 0.2);
+        0 20px 45px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(99, 102, 241, 0.22),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
 }
 
 
@@ -958,44 +1052,92 @@ footer a:hover {
 
 @media (max-width: 991px) {
 
+    .hero-section {
+        padding-top: 120px;
+        padding-bottom: 60px;
+        min-height: auto;
+    }
+
+    .hero-image-wrapper {
+        margin-top: 50px;
+    }
+
     .modern-navbar {
-        padding: 14px 0;
+        width: calc(100% - 24px) !important;
+        top: 12px !important;
+        padding: 10px 18px !important;
+        border-radius: 18px !important;
+    }
+
+    .modern-navbar .navbar-toggler {
+        display: flex;
+    }
+
+    .modern-navbar.scrolled {
+        top: 8px !important;
     }
 
     .modern-navbar .navbar-collapse {
-        margin-top: 15px;
+        margin-top: 12px;
 
         padding: 18px;
 
-        background: rgba(15, 18, 27, 0.98);
+        background: rgba(13, 18, 30, 0.96) !important;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
 
-        border: 1px solid rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.1);
 
-        border-radius: 14px;
+        border-radius: 16px;
     }
 
     .modern-navbar .navbar-nav {
-        gap: 3px;
+        gap: 4px;
     }
 
     .modern-navbar .nav-link {
-        padding: 12px 14px !important;
-    }
-
-    .modern-navbar .nav-link.active::after {
-        display: none;
+        padding: 10px 14px !important;
+        border-radius: 10px;
     }
 
     .navbar-cta {
         width: 100%;
-        margin-top: 12px;
+        margin-top: 10px;
 
-        padding: 12px;
+        padding: 11px;
     }
 }
 
 
 @media (max-width: 576px) {
+
+    .hero-section {
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
+
+    .hero-image {
+        width: 220px;
+        height: 220px;
+    }
+
+    .hero-image i {
+        font-size: 85px;
+    }
+
+    .card-one {
+        top: -10px;
+        left: -15px;
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .card-two {
+        bottom: -10px;
+        right: -15px;
+        padding: 8px 14px;
+        font-size: 13px;
+    }
 
     .modern-navbar .navbar-brand {
         font-size: 20px;
